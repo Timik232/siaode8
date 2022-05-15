@@ -103,29 +103,28 @@ void QuickSort(vector <int> &numbers, int n1, int n2)
 int main()
 {
     vector <int> numbers;
-    //manually(numbers);
-    random_generate(numbers);
+    //manually(numbers); //вручную ввести числа
+    random_generate(numbers); //сгенерировать числа
+    vector <int> to_sort = numbers;
     //print(numbers); //посмотреть какие числа
     unsigned int start_time = clock();
-    bubble(numbers);
+    bubble(to_sort);
     unsigned int end_time = clock();
     cout << "Time of bubble sort: " << end_time - start_time << endl;
-    //print(numbers); //посмотреть отсортировал ли
-    numbers.clear();
-    random_generate(numbers);
+    //print(to_sort); //посмотреть отсортировал ли
+    to_sort = numbers;
     start_time = clock();
-    shaker(numbers);
+    shaker(to_sort);
     end_time = clock();
     cout << "Time of shaker sort: " << end_time - start_time << endl;
-    //print(numbers); //посмотреть отсортировал ли
-    numbers.clear();
-    random_generate(numbers);
+    //print(to_sort); //посмотреть отсортировал ли
+    to_sort = numbers;
     start_time = clock();
     //следующие две переменные нужны для рекуррентого вызова внутри функции сортировки
     int n1 = 0; //начало
-    int n2 = numbers.size()-1; //конец
-    QuickSort(numbers,n1,n2);
+    int n2 = to_sort.size()-1; //конец
+    QuickSort(to_sort,n1,n2);
     end_time = clock();
     cout << "Time of quick sort: " << end_time - start_time;
-    //print(numbers);
+    //print(to_sort);
 }
